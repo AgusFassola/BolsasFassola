@@ -13,13 +13,15 @@ export default function NavBar(){
         <nav className="nav-main">
             <img className="nav-img" alt='logo coder' src={LogoImg}></img>
             <ul className="barra ">
-                <NavLink onClick={ handleClick} title="Inicio" />
-                <NavLink onClick={ handleClick} title="Productos" />
+                
+                <a href=""> <NavLink onClick={ handleClick} title="Inicio" /></a>
+                <a href=""><NavLink onClick={ handleClick} title="Productos" /></a>
+                
                     <ul>
-                    <NavLinkChild onClick={ handleClick} >Bolsas compostables</NavLinkChild>
-                    <NavLinkChild onClick={ handleClick} >Descartables compostables</NavLinkChild>
+                    <a href=""><NavLinkChild onClick={ handleClick} >Bolsas compostables</NavLinkChild></a>
+                    <a href=""><NavLinkChild onClick={ handleClick} >Descartables compostables</NavLinkChild></a>
                     </ul> 
-                <NavLink onClick={ handleClick} title="Contacto" />
+                <a href=""><NavLink onClick={ handleClick} title="Contacto" /></a>
             </ul>
             <CartWidget/>
         </nav>

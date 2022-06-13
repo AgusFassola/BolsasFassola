@@ -4,6 +4,11 @@ nav{
 .nav-main{
     display:flex;
     color:rgb(197, 188, 66);
+    text-decoration: none;
+}
+.nav-main a{
+    color:rgb(197, 188, 66);
+    text-decoration: none;
 }
 .nav-img{
     width: 150px;
