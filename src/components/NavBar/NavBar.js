@@ -1,7 +1,7 @@
 import "./navBar.css";
-import LogoImg from '../assets/simples_acciones.png';
-import NavLink from "./NavLink/NavLink";
-import NavLinkChild from "./NavLink/NavLinkChild";
+import LogoImg from "../../assets/simples_acciones.png";
+import NavLink from "../NavLink/NavLink";
+import NavLinkChild from "../NavLink/NavLinkChild";
 import CartWidget from "./CartWidget";
 
 
