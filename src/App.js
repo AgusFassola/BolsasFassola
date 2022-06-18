@@ -15,7 +15,6 @@ function App() {
       {/*<ItemListContainer greet="Puedes comprar todo tipo de bolsas"/>*/}
       <ItemDetailContainer itemId={1} greeting="Detalle de un producto" />
       <p style={{marginTop: "12px"}}>Agustin Fassola</p> 
-
     </div>
   );
 }
