@@ -1,6 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Item = ({item}) => {
+  
+  const urlDetalle= `/detalle/${item.id}`
   console.log(item);
   return (
     <div>
@@ -11,6 +14,9 @@ const Item = ({item}) => {
       <div>
         <h4>{item.description}</h4>
         <h3>${item.price}</h3>
+        <Link to={urlDetalle}>
+          <button>Ver Detalle</button>
+        </Link>
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 function ItemDetail({item}) {
   return (
@@ -10,6 +11,9 @@ function ItemDetail({item}) {
         </div>
         <h4>{item.description}</h4>
         <h3>${item.price}</h3>
+        <Link to="/">
+          <button>Volver</button>
+        </Link>
     </div>
   )
 }

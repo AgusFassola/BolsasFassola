@@ -3,27 +3,47 @@ import React,{useState, useEffect} from 'react';
 import ItemCount from '../ItemCount/ItemCount';
 import ItemList from './ItemList';
 import {productos} from './Products';
+import {useParams} from 'react-router-dom';
 
-export default function ItemListContainer(props) {
+//ASYNC MOCK DE DATOS
+function getDataFromDB(){
+  return new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+      resolve(productos);
+    },7000);
+  });
+}
+
+export default function ItemListContainer({greeting}) {
 
 
   const[products,SetProduct]=useState([]);
 
+  const {categoryId}=useParams();
+
   useEffect(()=>{
     const traerProductos= new Promise((res,rej)=>{
       setTimeout(()=>{
-        res(productos);
+        if(categoryId===undefined)
+          res(productos);
+          else{
+            const itemsFound=productos.filter(detalle=>{
+              return detalle.category===categoryId;
+            })
+            res(itemsFound);
+          }
       },2000);
     });
     traerProductos.then((res)=>{
       SetProduct(res);
     });
     
-  },[])
+  },[categoryId])
 
   return (
     
     <div className='itemListCont'>
+      <h1>{greeting}</h1>
       <ItemList articulos={products} />
       <br></br>
       <h3>Suma bolsas a tu compra</h3>

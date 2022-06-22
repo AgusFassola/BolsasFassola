@@ -1,10 +1,10 @@
 import React from 'react'
 
-function NavLink({title,handleClick}) {
+function NavLinkiado({title,handleClick}) {
 
   return (
     <li onClick={ handleClick}>{title}</li>
     )
 }
 
-export default NavLink
+export default NavLinkiado
