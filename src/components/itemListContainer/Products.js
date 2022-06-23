@@ -38,7 +38,7 @@ export const productos= [
         },
         {
          id: "5",
-         name: "separadores biodegradables",
+         name: "Separadores biodegradables",
          description: "Laminas separadoras elaboradas a base de almidon de maiz",
          stock: 3,
          img:"../img/separables.png",

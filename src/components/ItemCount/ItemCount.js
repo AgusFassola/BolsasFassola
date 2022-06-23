@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import "./itemCount.css";
+
 export default function ItemCount({stock,initial}) {
     const [cant,setCant]=useState(initial);
 
@@ -24,12 +24,12 @@ export default function ItemCount({stock,initial}) {
     }
     return (
     <div>
-        <button onClick={stockResta}>-</button>
+        <button className='btnDetalle' onClick={stockResta}>-</button>
         <span>{cant}</span>
-        <button onClick={stockSuma}>+</button>
+        <button className='btnDetalle' onClick={stockSuma}>+</button>
         <br></br>
         <br></br>
-        <button onClick={agregarCarrito}>Agregar al carrito</button>
+        <button className='btnDetalle' onClick={agregarCarrito}>Agregar al carrito</button>
     </div>
   )
 }

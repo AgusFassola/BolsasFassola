@@ -10,23 +10,21 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1 style={stylesH1}>Bienvenidos a simples acciones</h1>
       </header>
-      <BrowserRouter>
-        <NavBar/>
-        <Routes>
-          <Route path='/' element={
-            <ItemListContainer greeting="Puedes comprar todo tipo de bolsas"/>
-          }/>
-          <Route path='/category/:categoryId' element={<ItemListContainer greeting="Categorías de productos"/>}/>
-          <Route path='/detalle/:itemId' element={
-            <ItemDetailContainer itemId={1} greeting="Detalle de un producto" />
-          }/>
-          <Route path='/contact' element={<ContactPage/>} />
-        </Routes>
-      </BrowserRouter>
-      {/*<ItemListContainer greet="Puedes comprar todo tipo de bolsas"/>*/}
-      <p style={{marginTop: "12px"}}>Agustin Fassola</p> 
+      <body>
+        <BrowserRouter>
+          <NavBar/>
+          <Routes>
+            <Route path='/' element={<ItemListContainer greeting="Puedes comprar todo tipo de bolsas"/>}/>
+            <Route path='/category/:categoryId' element={<ItemListContainer greeting="Categorías de productos"/>}/>
+            <Route path='/detalle/:itemId' element={<ItemDetailContainer itemId={1} greeting="Detalle de un producto" />}/>
+            <Route path='/contact' element={<ContactPage/>} />
+          </Routes>
+        </BrowserRouter>
+        {/*<ItemListContainer greet="Puedes comprar todo tipo de bolsas"/>*/}
+        <p style={{marginTop: "12px"}}>Agustin Fassola</p> 
+      </body>
+      
     </div>
   );
 }

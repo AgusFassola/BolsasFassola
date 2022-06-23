@@ -32,7 +32,7 @@ export default function ItemListContainer({greeting}) {
             })
             res(itemsFound);
           }
-      },2000);
+      },500);
     });
     traerProductos.then((res)=>{
       SetProduct(res);
@@ -44,11 +44,11 @@ export default function ItemListContainer({greeting}) {
     
     <div className='itemListCont'>
       <h1>{greeting}</h1>
-      <ItemList articulos={products} />
-      <br></br>
-      <h3>Suma bolsas a tu compra</h3>
-      <ItemCount stock={5} initial={1} />
-      
+      <ItemList className="itemList" articulos={products} />
+      <div className='contador text-center' >
+        <h3>Suma bolsas a tu compra</h3>
+        <ItemCount stock={5} initial={1} />
+      </div>
     </div>
     
   )
