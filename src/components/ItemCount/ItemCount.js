@@ -1,6 +1,6 @@
 import {useState} from 'react';
 
-export default function ItemCount({stock,initial}) {
+export default function ItemCount({stock,initial, onAdd}) {
     const [cant,setCant]=useState(initial);
 
     function stockSuma(){
@@ -19,17 +19,17 @@ export default function ItemCount({stock,initial}) {
     function resta(){
         setCant(cant-1);
     }
-    function agregarCarrito(){
-        alert("Se agregó "+cant+" bolsa/s al carrito");
-    }
+
     return (
     <div>
-        <button className='btnDetalle' onClick={stockResta}>-</button>
-        <span>{cant}</span>
-        <button className='btnDetalle' onClick={stockSuma}>+</button>
+        <h3>Suma bolsas a tu compra</h3>
+        <button className='btnSigno' onClick={stockResta}>-</button>
+        <span className='cantidad'>{cant}</span>
+        <button className='btnSigno' onClick={stockSuma}>+</button>
         <br></br>
         <br></br>
-        <button className='btnDetalle' onClick={agregarCarrito}>Agregar al carrito</button>
+        <button className='btnDetalle' onClick={()=>onAdd(cant)}>Agregar al carrito</button>
+        <br></br><br></br>
     </div>
   )
 }

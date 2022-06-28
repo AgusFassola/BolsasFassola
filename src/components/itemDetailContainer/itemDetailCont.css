@@ -16,3 +16,12 @@ h1{
     border-radius: 20px;
     background-color: lightgreen;
 }
+.btnSigno{
+    border-radius: 20px;
+    background-color: lightgreen;
+    font-size: 1.5rem;
+    width: 40px;
+}
+.cantidad{
+    font-size: 2rem;
+}

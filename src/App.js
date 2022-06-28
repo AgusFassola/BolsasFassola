@@ -4,6 +4,8 @@ import NavBar from './components/NavBar/NavBar';
 import ItemDetailContainer from './components/itemDetailContainer/ItemDetailContainer';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import ContactPage from './pages/ContactPage';
+import Cart from './components/Cart/Cart';
+
 function App() {
 
   const stylesH1={color:'blue',}
@@ -19,6 +21,7 @@ function App() {
             <Route path='/category/:categoryId' element={<ItemListContainer greeting="Categorías de productos"/>}/>
             <Route path='/detalle/:itemId' element={<ItemDetailContainer itemId={1} greeting="Detalle de un producto" />}/>
             <Route path='/contact' element={<ContactPage/>} />
+            <Route path='/cart' element={<Cart/>}/>
           </Routes>
         </BrowserRouter>
         {/*<ItemListContainer greet="Puedes comprar todo tipo de bolsas"/>*/}

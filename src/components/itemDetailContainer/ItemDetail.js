@@ -1,7 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import ItemCount from '../ItemCount/ItemCount';
+
 
 function ItemDetail({item}) {
+
+  const[cantidad,setCantidad]=React.useState(0);
+
+  function handleOnAdd(cant){
+    alert("Se agregó "+cant+" productos al carrito")
+    console.log("Se compraron ",cant," bolsas");
+    setCantidad(cant);
+  }
+
   return (
     <div className="mb-0.5 pb-3 itemlist-card text-center">
         <h1>ITEM DETAIL</h1>
@@ -12,6 +23,20 @@ function ItemDetail({item}) {
         <Link to="/">
           <button className='btnDetalle'>Volver</button>
         </Link>
+        <br></br>
+        <br></br>
+        <div className='contador text-center' >
+        {
+          (cantidad===0)
+          ? <ItemCount onAdd={handleOnAdd} stock={5} initial={1} />
+          : <Link to="/cart">
+            <br></br>
+              <button className='btnDetalle'>Ver Carrito</button>
+              <br></br><br></br>
+            </Link>
+        }
+        
+      </div>
     </div>
   )
 }

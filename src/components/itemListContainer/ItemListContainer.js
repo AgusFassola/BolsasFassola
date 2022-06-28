@@ -1,6 +1,5 @@
 import '../itemListContainer/itemListCont.css';
 import React,{useState, useEffect} from 'react';
-import ItemCount from '../ItemCount/ItemCount';
 import ItemList from './ItemList';
 import {productos} from './Products';
 import {useParams} from 'react-router-dom';
@@ -45,10 +44,6 @@ export default function ItemListContainer({greeting}) {
     <div className='itemListCont'>
       <h1>{greeting}</h1>
       <ItemList className="itemList" articulos={products} />
-      <div className='contador text-center' >
-        <h3>Suma bolsas a tu compra</h3>
-        <ItemCount stock={5} initial={1} />
-      </div>
     </div>
     
   )

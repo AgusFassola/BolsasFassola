@@ -9,7 +9,6 @@ export default function ItemDetailContainer({greeting}) {
 
   const[product,SetProduct]=useState({});
   const { itemId }=useParams();//recibo un objeto, de ese objeto guardo el id
-  console.log("parametros: ",itemId);
   useEffect(()=>{
     const traerProducto= new Promise((resolve,reject)=>{
       setTimeout(()=>{
@@ -33,8 +32,6 @@ export default function ItemDetailContainer({greeting}) {
   return (
     
     <div className='itemListCont'>
-      <br></br>
-      <h3>Suma bolsas a tu compra</h3>
       <ItemDetail item={product} />
     </div>
     

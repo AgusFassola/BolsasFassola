@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Item = ({item}) => {
 
   const urlDetalle= `/detalle/${item.id}`
-  console.log(item);
+
   return (
 
       <div className="mb-0.5 pb-3 itemlist-card text-center">
