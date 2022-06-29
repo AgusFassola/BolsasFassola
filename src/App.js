@@ -5,7 +5,8 @@ import ItemDetailContainer from './components/itemDetailContainer/ItemDetailCont
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import ContactPage from './pages/ContactPage';
 import Cart from './components/Cart/Cart';
-
+//6- importamos y renderizamos el provider
+import {CartContextProvider} from './components/context/CartContext';
 function App() {
 
   const stylesH1={color:'blue',}
@@ -13,7 +14,7 @@ function App() {
     <div className="App">
       <header className="App-header">
       </header>
-      <body>
+        <CartContextProvider>
         <BrowserRouter>
           <NavBar/>
           <Routes>
@@ -26,8 +27,7 @@ function App() {
         </BrowserRouter>
         {/*<ItemListContainer greet="Puedes comprar todo tipo de bolsas"/>*/}
         <p style={{marginTop: "12px"}}>Agustin Fassola</p> 
-      </body>
-      
+        </CartContextProvider>
     </div>
   );
 }
