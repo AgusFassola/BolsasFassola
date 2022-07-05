@@ -3,7 +3,9 @@ import { useContext } from 'react';
 import CartContext from '../context/CartContext';
 
 export default function Cart() {
-  const {cart}=useContext(CartContext);
+
+  const {cart,removeItemFromCart,clearCart}=useContext(CartContext);
+
   console.log(cart);
   if(cart.length===0){
     return <h1>nada en el carrito</h1>
@@ -12,17 +14,20 @@ export default function Cart() {
       <div>
         {
             cart.map(item =>(
-              <div className='mb-5 py-3 text-center' key={item.id}>
+              <div className='mb-5 py-3 text-center'>
                 <h3>
                   {item.name}
                 </h3>
                 <p>{item.desripcion}</p>
                 <p>${item.price}</p>
+                <p>cantidad: {item.cantidad}</p>
+                <button onClick={removeItemFromCart}>Eliminar del carrito</button>
+                <p>Subtotal: $<span>{item.price * item.cantidad}</span></p>
               </div>
             ))
         }
         
-        <button>limpiar carrito</button>
+        <button onClick={clearCart}>limpiar carrito</button>
       </div>
   )
 }

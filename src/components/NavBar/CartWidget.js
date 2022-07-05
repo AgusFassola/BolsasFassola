@@ -1,15 +1,26 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import '../NavBar/cartWidget.css';
+import carting from "../../assets/cartwidget.png";
+import CartContext from '../context/CartContext';
+import { Link } from 'react-router-dom';
 
 export default function CartWidget() {
+
+const {qntyInCart}=useContext(CartContext);
+
   return (
-    
-    <ion-icon className='carrito' name="cart-outline" size={25}/>
+    <div>
+      <Link to="/cart">
+        <img width="40" src={carting} />
+      </Link>
+      <span className='ml-2'>{qntyInCart()}</span>  
+    </div>
     //<ion-icon height="20" className='carrito' ></ion-icon>
   )
 }
 {/*
 
+  //<p>{cantInCart}</p>
 */}
 
 

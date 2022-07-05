@@ -8,7 +8,8 @@ export default function NavBar(){
 
     return(
         <nav className="nav-main">
-            <img className="nav-img" alt='logo coder' src={LogoImg}></img>
+            <NavLink to="/"><img className="nav-img" alt='logo coder' src={LogoImg}></img>
+</NavLink>
             <ul className="barra ">
                 <li>
                     <NavLink className={styles.NavLink} to="/">Inicio</NavLink>
