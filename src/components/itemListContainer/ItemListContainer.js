@@ -1,8 +1,9 @@
 import '../itemListContainer/itemListCont.css';
 import React,{useState, useEffect} from 'react';
 import ItemList from './ItemList';
-import {productos} from './Products';
+//import {productos} from './Products';
 import {useParams} from 'react-router-dom';
+import {getItems} from '../firebase/firestore';
 
 //ASYNC MOCK DE DATOS
 function getDataFromDB(){
@@ -15,28 +16,21 @@ function getDataFromDB(){
 
 export default function ItemListContainer({greeting}) {
 
-
+  //getItems().then(respuesta=>console.log(respuesta));
   const[products,SetProduct]=useState([]);
 
   const {categoryId}=useParams();
 
+
   useEffect(()=>{
-    const traerProductos= new Promise((res,rej)=>{
-      setTimeout(()=>{
-        if(categoryId===undefined)
-          res(productos);
-          else{
-            const itemsFound=productos.filter(detalle=>{
-              return detalle.category===categoryId;
-            })
-            res(itemsFound);
-          }
-      },500);
-    });
-    traerProductos.then((res)=>{
-      SetProduct(res);
-    });
     
+    getItems()
+    .then((res)=>{
+      SetProduct(res);
+    })
+    .catch((error)=>{
+      console.log(error);
+    });
   },[categoryId])
 
   return (
