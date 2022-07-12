@@ -6,10 +6,16 @@ const CartContext = createContext();
 //2- Definimos nuestro Provider
 export function CartContextProvider(props) {
 
-    const[cart, setCart]=useState([]);
+    const[cart, setCart] = useState([]);
   
-    function addToCart(item,cant){
-        if(isInCart(item.id)){
+    function addToCart(item, cant){
+        if(isInCart(item.id))
+        {
+            const idToAdd = item.id;
+            let itemToAdd = cart.find((cadaItem)=> cadaItem.id===idToAdd);
+            itemToAdd.cantidad+=cant;
+            let newCart = cart.filter((cadaItem)=> cadaItem.id!== item.id);
+            setCart([...newCart, {...itemToAdd}]);
             console.log("ya esta en el carrito");
         }else{
             setCart([...cart,{...item,//toma todas las propiedades y ademas agrega cant

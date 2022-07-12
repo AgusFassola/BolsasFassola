@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import {collection, getDocs, getFirestore} from "firebase/firestore";
+import {collection, getDocs, getFirestore,getDoc,doc} from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -14,21 +14,28 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const appFirebase = initializeApp(firebaseConfig);
+
+//2. inicializamos la instancia a la base de datos de firestore
 const appFirestore = getFirestore(appFirebase);
 
 export function testDatabase(){
     console.log(appFirestore)
 }
 
+//3. obtenemos todos los items
 export async function getItems(){
+  //3.a. instanciamos una coleccion (appfirestore, "nombre de la coleccion")
     const bolsasCollection=collection(appFirestore,"bolsas");
 
-    const bolsasSnapShot= await getDocs(bolsasCollection);
+    //3.b.obtenemos los documentos con getDocs(referencia de la coleccion)
+    const bolsasSnapShot= await getDocs(bolsasCollection);//esperamos a que llegue antes de seguir ejecutando
 
+    //eso hace que aca nunca retornemos un array vacío
+    //3.c. del snapshot mapeamos los documentos
     let respuesta=bolsasSnapShot.docs.map(doc=>{
       return{
         ...doc.data(),
-        id:doc.id//para poder obtener el id de firebase, sino no te la da
+        id:doc.id//para poder obtener el id de firebase, sino no te la da, viene por separado
       }
       
     } )
@@ -36,5 +43,35 @@ export async function getItems(){
     return respuesta;
     
 }
+export async function traerUnProducto(itemId){
 
+  const docref=doc(appFirestore,"bolsas",itemId);
+
+  const docSnapshot= await getDoc(docref);
+
+  return{
+    id:docSnapshot.id, ...docSnapshot.data()
+  };
+  
+}
+/*
+FUNCION CON QUERY "WHERE"
+export async function traerProductosDeCategoria(idCategory){
+
+  import{collection,query,where} from "firebase/firestore";
+
+  const bolsaCollection = collection(appFirestore, "cities");
+
+  const q = query(bolsaCollection, where("categoria","==",idCategory));
+
+  const bolsasSnapshot = await getDocs(q);
+  let respuesta= bolsasSnapshot.docs.map( doc=>{
+    return{
+      ...doc.data(),
+      id:doc.id
+    }
+  })
+  return respuesta;
+}
+*/
 export default appFirebase

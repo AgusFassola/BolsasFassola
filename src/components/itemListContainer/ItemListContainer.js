@@ -1,18 +1,11 @@
 import '../itemListContainer/itemListCont.css';
 import React,{useState, useEffect} from 'react';
 import ItemList from './ItemList';
-//import {productos} from './Products';
+
 import {useParams} from 'react-router-dom';
 import {getItems} from '../firebase/firestore';
 
-//ASYNC MOCK DE DATOS
-function getDataFromDB(){
-  return new Promise((resolve,reject)=>{
-    setTimeout(()=>{
-      resolve(productos);
-    },7000);
-  });
-}
+
 
 export default function ItemListContainer({greeting}) {
 
@@ -24,7 +17,7 @@ export default function ItemListContainer({greeting}) {
 
   useEffect(()=>{
     
-    getItems()
+    getItems()//tiene parentesis porque es una funcion
     .then((res)=>{
       SetProduct(res);
     })
