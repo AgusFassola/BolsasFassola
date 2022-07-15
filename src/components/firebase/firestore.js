@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import {collection, getDocs, getFirestore,getDoc,doc} from "firebase/firestore";
+import {collection, getDocs, getFirestore,getDoc,doc, setDoc, addDoc, Timestamp} from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -52,6 +52,40 @@ export async function traerUnProducto(itemId){
   return{
     id:docSnapshot.id, ...docSnapshot.data()
   };
+  
+}
+
+export async function createBuyOrder(dataOrder){
+  const orderCollectionRef = collection(appFirestore,"orders");
+  const dateTimestamp= Timestamp.now();
+  const dataOrderWithDate={
+    buyer: dataOrder.buyer,
+    items: dataOrder.items,
+    total: dataOrder.total,
+    date:dateTimestamp
+  }
+
+  const orderCreated= await addDoc(orderCollectionRef, dataOrderWithDate);
+  
+  return orderCreated;
+}
+
+export async function exportDataToFirestore(){
+  const productos=[
+    //pegar los productos
+  ];
+  const bolsaCollection = collection(appFirestore,"bolsas");
+
+
+productos.forEach(item=>{
+
+  const newDoc = doc(bolsaCollection)
+  setDoc(newDoc, item).then( res=>{
+    console.log("documento guardado",res)
+  })
+})
+
+  const itemPrueba = productos[0];
   
 }
 /*

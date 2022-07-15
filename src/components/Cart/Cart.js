@@ -1,12 +1,19 @@
 import React from 'react';
 import { useContext } from 'react';
 import CartContext from '../context/CartContext';
+import { createBuyOrder } from '../firebase/firestore';
+import CartForm from './CartForm';
+//                <p>total a pagar: ${totalPriceCart().toFixed(2)}{""}</p>
 
 export default function Cart() {
 
   const {cart,removeItemFromCart,clearCart}=useContext(CartContext);
 
-  console.log(cart);
+  
+
+
+
+  
   if(cart.length===0){
     return <h1>nada en el carrito</h1>
   }
@@ -22,12 +29,16 @@ export default function Cart() {
                 <p>${item.price}</p>
                 <p>cantidad: {item.cantidad}</p>
                 <button onClick={removeItemFromCart}>Eliminar del carrito</button>
-                <p>Subtotal: $<span>{item.price * item.cantidad}</span></p>
+                <p>Subtotal:{" "} <span>${item.price * item.cantidad}</span></p>
+
               </div>
             ))
         }
-        
+        <CartForm cart={cart} clearCart={clearCart} createBuyOrder={createBuyOrder}/>
+        <button onClick={handleBuyOrder}>Finalizar compra</button>
         <button onClick={clearCart}>limpiar carrito</button>
+        
       </div>
+      
   )
 }
