@@ -5,7 +5,6 @@ import ItemDetailContainer from './components/itemDetailContainer/ItemDetailCont
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import ContactPage from './pages/ContactPage';
 import Cart from './components/Cart/Cart';
-//6- importamos y renderizamos el provider
 import {CartContextProvider} from './components/context/CartContext';
 function App() {
 
@@ -25,7 +24,6 @@ function App() {
             <Route path='/cart' element={<Cart/>}/>
           </Routes>
         </BrowserRouter>
-        {/*<ItemListContainer greet="Puedes comprar todo tipo de bolsas"/>*/}
         <p style={{marginTop: "12px"}}>Agustin Fassola</p> 
         </CartContextProvider>
     </div>
@@ -33,18 +31,3 @@ function App() {
 }
 
 export default App;
-
-/**
- * let urlRequest=`https://pokeapi.co/api/v2/pokemon`;
- * const[pokeList,setPokeList]=useState([]);
-useEffect(()=>{
-fetch(urlRequest)
-.then(respuesta=> respuesta.json())
-.then(respuestaJSON=> setPokeList(respuestaJSON.results))
-
-//.then(respuesta2 => console.log(respuesta2.results[5].name))
-//.catch(error=> console.error("error obteniendo datos de pokemon"));
-},[])
-
- * 
- */

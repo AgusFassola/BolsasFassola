@@ -1,7 +1,6 @@
 import '../itemListContainer/itemListCont.css';
 import React,{useState, useEffect} from 'react';
 import ItemList from './ItemList';
-
 import {useParams} from 'react-router-dom';
 import {getItems} from '../firebase/firestore';
 
@@ -9,7 +8,6 @@ import {getItems} from '../firebase/firestore';
 
 export default function ItemListContainer({greeting}) {
 
-  //getItems().then(respuesta=>console.log(respuesta));
   const[products,SetProduct]=useState([]);
 
   const {categoryId}=useParams();
@@ -17,7 +15,7 @@ export default function ItemListContainer({greeting}) {
 
   useEffect(()=>{
     
-    getItems()//tiene parentesis porque es una funcion
+    getItems()
     .then((res)=>{
       SetProduct(res);
     })
@@ -35,17 +33,3 @@ export default function ItemListContainer({greeting}) {
     
   )
 }
-/**
- * const[texto,SetTexto]=useState(props.greet);
-
-  function cambiarTexto(){
-    SetTexto("Salvemos el mundo!");
-  }
-function resetTexto(){
-  SetTexto(props.greet);
-}
- * 
-      <h2>{texto}</h2>
-      <button onClick={cambiarTexto}>cambiar Texto</button>
-      <button onClick={resetTexto}>reset Texto</button>
- */

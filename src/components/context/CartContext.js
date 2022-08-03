@@ -1,9 +1,7 @@
 import React, {useState, createContext} from 'react';
 
-//1-importamos e inicializamos nuestro createContext
 const CartContext = createContext();
 
-//2- Definimos nuestro Provider
 export function CartContextProvider(props) {
 
     const[cart, setCart] = useState([]);
@@ -18,7 +16,7 @@ export function CartContextProvider(props) {
             setCart([...newCart, {...itemToAdd}]);
             console.log("ya esta en el carrito");
         }else{
-            setCart([...cart,{...item,//toma todas las propiedades y ademas agrega cant
+            setCart([...cart,{...item,
             cantidad:cant}]);
         }
         
@@ -43,12 +41,9 @@ export function CartContextProvider(props) {
         setCart([]);
     }
 
-
-  //3- Pasamos al provider el value para los compjnentes que consuman el context
-  //4- retornamos el context provideer con el value
   return <CartContext.Provider value={ { cart, otrovalor:"hola",addToCart,qntyInCart,clearCart,removeItemFromCart } }>
     {props.children}
   </CartContext.Provider>
 }
-//5- exportamos el provider y el context
+
 export default CartContext

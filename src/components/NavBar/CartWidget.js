@@ -15,12 +15,8 @@ const {qntyInCart}=useContext(CartContext);
       </Link>
       <span className='ml-2'>{qntyInCart()}</span>  
     </div>
-    //<ion-icon height="20" className='carrito' ></ion-icon>
   )
 }
-{/*
 
-  //<p>{cantInCart}</p>
-*/}
 
 

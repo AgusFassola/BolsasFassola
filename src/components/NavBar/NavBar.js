@@ -27,20 +27,3 @@ export default function NavBar(){
         </nav>
     );
 }
-/**
- * 
-import NavLinkChild from "../NavLink/NavLinkChild";
- * import NavLinkiado from "../NavLink/NavLinkiado";
-
-    function handleClick(){
-        console.log("click");
-    }
- *                 <a href=""> <NavLinkiado onClick={ handleClick} title="Inicio" /></a>
-  
-<a href=""><NavLinkiado onClick={ handleClick} title="Productos" /></a>
-                    <ul>
-                    <a href=""><NavLinkChild onClick={ handleClick} >Bolsas compostables</NavLinkChild></a>
-                    <a href=""><NavLinkChild onClick={ handleClick} >Descartables compostables</NavLinkChild></a>
-                    </ul> 
-                <a href=""><NavLink onClick={ handleClick} title="Contacto" /></a>
- */
